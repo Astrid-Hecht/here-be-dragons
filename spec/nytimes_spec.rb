@@ -32,10 +32,7 @@ class Nytimes
 
     it 'can get all stories with subsection of politics' do 
       #Using @hash, define a variable called `result` that returns all stories with subsection of politics.
-      result = []
-      @hash[:results].each do |story|
-        result << story if story[:subsection] == 'Politics'
-      end
+      result = @hash[:results].select { |story| story[:subsection] == 'Politics' }
 
       expect(result).to be_an_instance_of(Array)
       expect(result.count).to eq(6)
